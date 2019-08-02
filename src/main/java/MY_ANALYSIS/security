@@ -1,0 +1,110 @@
+
+https://howtodoinjava.com/security/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/
+
+https://www.mkyong.com/spring-security/spring-security-remember-me-example/333/
+
+
+// FUNCTION redirect to default URL
+    (function($) {
+        $.fn.redirectSpecialURL = function(currentPage) {
+
+            // redirect to specified employee view without SORTING and without 'searchedByFields'
+            if (("${sortBy}" == "") && ("${searchedByFields}" == "" || "${searchedByFields}" == "false") ) { 
+                alert("1");
+
+                var url = "/timesheet/employees?page=" + currentPage + "&pageSize=" + $("#page_size").val();
+                window.location.href = url;
+            }
+            // redirect to specified employee view with SORTING but without 'searchedByFields'
+            if (("${sortBy}" == "id" || "${sortBy}" == "department" || "${sortBy}" == "name") &&
+                  && ("${searchedByFields}" == "" || "${searchedByFields}" == "false") ) {
+                alert("2");
+
+                var url = '/timesheet/employees?page=' +
+                        $("#pagesEmployees li.active").text().trim() +
+                        "&pageSize=" + $("#page_size").val() +
+                        '&sortBy=' + "${sortBy}" + '&sortOrder=' + "${order}";
+                window.location.href = url;
+            }
+
+            // redirect to specified employee view without SORTING
+           // if ("$ {searchedByFields}" == "" || "$ {searchedByFields}" == "false") {
+           //     alert("3");
+           
+           //     var url = "/timesheet/employees/search?id=" + $("#field_id").val() +
+           //             "&department=" + $("#field_department").val() +
+           //             "&name=" + $("#field_name").val();
+           //     window.location.href = url;
+           // }
+           
+            // redirect to specified employee view with 'searchedByFields' and with SORTING
+            if (("${searchedByFields}" == "true") &&  ("${sortBy}" != "" ) ) {
+                alert("3");
+
+                // Any Items not founded
+                if("${totalCount}" == 0) 
+                {
+                var url = "/timesheet/employees/search?id=" + $("#field_id").val() +
+                        "&department=" + $("#field_department").val() +
+                        "&name=" + $("#field_name").val() +
+                        "&sortBy=" + "${sortBy}" + "&sortOrder=" + "${order}";
+                window.location.href = url;
+                } 
+                else 
+                {
+                var url = "/timesheet/employees/search?page=" + currentPage + 
+                        "&pageSize=" + $("#page_size").val() + 
+                        "&id=" + $("#field_id").val() +
+                        "&department=" + $("#field_department").val() +
+                        "&name=" + $("#field_name").val() +
+                        "&sortBy=" + "${sortBy}" + "&sortOrder=" + "${order}";
+                window.location.href = url;    
+                }
+            }
+            
+            // redirect to specified employee view with 'searchedByFields' and without SORTING
+            if (("${searchedByFields}" == "true") &&  ("${sortBy}" == "" ) ) {
+                alert("4");
+
+                // Any Items not founded
+                if("${totalCount}" == 0) 
+                {
+                var url = "/timesheet/employees/search?id=" + $("#field_id").val() +
+                        "&department=" + $("#field_department").val() +
+                        "&name=" + $("#field_name").val() ;
+                window.location.href = url;
+                } 
+                else 
+                {
+                var url = "/timesheet/employees/search?page=" + currentPage + 
+                        "&pageSize=" + $("#page_size").val() + 
+                        "&id=" + $("#field_id").val() +
+                        "&department=" + $("#field_department").val() +
+                        "&name=" + $("#field_name").val() ;
+                window.location.href = url;    
+                }
+            }
+            
+
+            return this;
+        };
+    })(jQuery);
+    
+
+
+
+
+
+
+       
+
+       
+
+        
+
+       
+
+       
+
+        
+        

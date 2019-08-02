@@ -1,0 +1,110 @@
+Spring 3.1.0.RELEASE
+
+https://www.codejava.net/java-ee/jsp/how-to-create-dynamic-drop-down-list-in-jsp-from-database  SERVLET
+
+https://howtodoinjava.com/spring-mvc/spring-mvc-populate-and-validate-dropdown-example/
+
+https://www.mkyong.com/spring-mvc/spring-mvc-refactoring-a-jquery-ajax-post-example/
+
+https://stackoverflow.com/questions/35612821/spring-mvc-ajax-post
+
+https://www.javacodegeeks.com/2012/02/spring-mvc-and-jquery-for-ajax-form.html  validation !!!
+
+
+
+http://www.technicalkeeda.com/spring-tutorials/spring-framework-jquery-ajax-request-and-json-response-example
+
+https://www.javacodegeeks.com/2012/02/ajax-with-spring-mvc-3-using.html
+
+<%
+   for (int i = 0; i < ${employees}.size(); i++) { 
+       User user = users.get(i); %>  
+       <!-- create an html table row -->
+       <tr>
+       <!-- create cells of row -->
+       <td><% out.print(user.getId()); %></td>
+       <td><% out.print(user.getDepartment()); %></td>
+       <td><% out.print(user.getName()); %></td>
+       <!-- close row -->
+       </tr>
+       <!-- close the loop -->
+   <% } %>
+
+ 
+
+  <form:options items="${managers}"></form:options>
+
+<c:out value="${manager.name}" />
+
+ <option value="<c:out value='${manager.id}' />">   
+                            ${manager.name}
+                        </option>
+
+
+<c:forEach var="manager" items="${managers}">
+                                 <option value="${manager.id}">${manager.name}</option>
+                    </c:forEach>
+
+ <option value="${man.id}">${man.name}</option>
+
+  <c:forEach var="man" items="${managers}">
+                               
+                              <form:option value="${man.id}">${man.name}</form:option>
+                              
+                           </c:forEach>
+
+
+<c:forEach var="employee" items="${assignedEmployees}">
+                <tr>
+                  
+                </tr>
+            </c:forEach>
+
+====================================
+
+[object Object] parsererror SyntaxError: Unexpected token O in JSON at position 0
+
+================================================================================
+
+ <form:input path =  "department" id="department_id" cssClass="form-control" maxlength="64" value="${employee.department}" />
+              
+<form:input path =  "department" id="department_id" cssClass="form-control" maxlength="64" value="" />
+
+
+<c:choose>
+        <c:when test='${try_update != "updated" }'> 
+            <form:select  path="managers" cssClass="form-control" multiple="false">
+                <form:option value="">-Please Select-</form:option>
+                <c:forEach var="man" items="${managers}">
+
+                    <option value="${man.id}"
+                            <c:if test="${man.id eq selectedManId}">selected="selected"</c:if>>
+                        ${man.name}
+                    </option>
+                </c:forEach> 
+            </form:select>
+        </c:when>
+        <c:otherwise>
+            <form:select  path="managers" cssClass="form-control" multiple="false">
+                <form:option value="">-Please Select-</form:option>
+                <c:forEach var="man" items="${managers}">
+
+                    <option value="${man.id}"
+                            <c:if test="${man.id eq newSelectedManager}">selected="selected"</c:if>>
+                        ${man.name}
+                    </option>
+
+                </c:forEach> 
+            </form:select>
+        </c:otherwise>
+    </c:choose> 
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+
+
+
+
+           

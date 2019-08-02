@@ -1,0 +1,32 @@
+ "{[/employees],methods=[GET],params=[new],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.EmployeeController.createEmployeeForm(org.springframework.ui.Model)
+ "{[/employees/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.EmployeeController.getEmployee(long,org.springframework.ui.Model)
+ "{[/employees/{id}],methods=[DELETE],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.EmployeeController.deleteEmployee(long) throws org.timesheet.web.exceptions.EmployeeDeleteException
+ "{[/employees/{id}],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.EmployeeController.updateEmployee(long,org.timesheet.domain.Employee)
+ "{[/employees],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.EmployeeController.addEmployee(org.timesheet.domain.Employee)
+ "{[/employees],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.EmployeeController.showEmployees(org.springframework.ui.Model)
+ 
+"{[/managers/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.ManagerController.getManager(long,org.springframework.ui.Model)
+ "{[/managers],methods=[GET],params=[new],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.ManagerController.createManagerForm(org.springframework.ui.Model)
+ "{[/managers/{id}],methods=[DELETE],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.ManagerController.deleteManager(long) throws org.timesheet.web.exceptions.ManagerDeleteException
+ "{[/managers],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.ManagerController.showManagers(org.springframework.ui.Model)
+ "{[/managers],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.ManagerController.addManager(org.timesheet.domain.Manager)
+ "{[/managers/{id}],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.ManagerController.updateManager(long,org.timesheet.domain.Manager)
+ 
+"{[/tasks/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.TaskController.getTask(long,org.springframework.ui.Model)
+ "{[/tasks/{id}/employees/{employeeId}],methods=[PUT],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.TaskController.addEmployee(long,long)
+ "{[/tasks/{id}/employees/{employeeId}],methods=[DELETE],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void org.timesheet.web.TaskController.removeEmployee(long,long)
+ "{[/tasks/{id}],methods=[DELETE],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.TaskController.deleteTask(long) throws org.timesheet.web.exceptions.TaskDeleteException
+ "{[/tasks],methods=[GET],params=[new],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.TaskController.createTaskForm(org.springframework.ui.Model)
+ "{[/tasks],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.TaskController.addTask(org.timesheet.domain.Task)
+ "{[/tasks],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.TaskController.showTasks(org.springframework.ui.Model)
+ 
+"{[/timesheets],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.TimesheetController.showTimesheets(org.springframework.ui.Model)
+ "{[/timesheets/{id}],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.TimesheetController.updateTimesheet(long,org.timesheet.web.commands.TimesheetCommand,org.springframework.validation.BindingResult)
+ "{[/timesheets/{id}],methods=[DELETE],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.TimesheetController.deleteTimesheet(long)
+ "{[/timesheets/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.TimesheetController.getTimesheet(long,org.springframework.ui.Model)
+ "{[/timesheets],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.TimesheetController.addTimesheet(org.timesheet.domain.Timesheet)
+ "{[/timesheets],methods=[GET],params=[new],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.TimesheetController.createTimesheetForm(org.springframework.ui.Model)
+ 
+"{[/timesheet-service],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.TimesheetServiceController.showMenu(org.springframework.ui.Model)
+ "{[/timesheet-service/manager-tasks/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.TimesheetServiceController.showManagerTasks(long,org.springframework.ui.Model)
+ "{[/timesheet-service/employee-tasks/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String org.timesheet.web.TimesheetServiceController.showEmployeeTasks(long,org.springframework.ui.Model)
