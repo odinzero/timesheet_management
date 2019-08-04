@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <input type="button" id="buttonEncryption" value="Encrypt" />
+            <h3 class=" decr ">Skype: alekseykravchenko1979</h3>
+        </div>
+        
+        <div>
+            <input type="button" id="buttonDecryption" value="Decrypt" />
+            <h3 class=" encr "></h3>    
+        </div>
+
+        <script src="js/jquery-2.2.4.min.js" type="text/javascript"></script>
+        <script src="js/aes.js"></script>
+
+        <script type="text/javascript">
+
+
+            // ================================= DECRYPTION ================================
+            function decrypt_str(data, k)
+            {
+                     var decrypted = CryptoJS.AES.decrypt(data, k);
+                  
+                    try {
+                        var str_decrypted = decrypted.toString(CryptoJS.enc.Utf8);
+
+                    } catch (e) {
+                        var str_decrypted = "";
+                        return str_decrypted;
+                    }
+
+                    return str_decrypted;
+                
+            }
+
+            function encryption(text, salt) {
+
+                var ciphertext = CryptoJS.AES.encrypt(text, salt);
+                
+               // var ct = ciphertext.toString(CryptoJS.enc.Utf8);
+                
+                return ciphertext.toString();
+            }
+
+
+            $("#buttonEncryption").click(function(){
+                
+                var text = $(".decr").text();
+                var salt = "Secret Eng";
+                        
+                var str_encrypted = encryption(text, salt );
+                
+                alert(str_encrypted);
+                
+                $(".encr").text(str_encrypted);
+            });
+            
+             $("#buttonDecryption").click(function(){
+                
+                var data = $(".encr").text();
+                var salt = "Secret Eng";
+                        
+                var str_decrypted = decrypt_str(data,  salt);
+                
+               // var decrypted = CryptoJS.AES.decrypt(data, salt);
+               // var d =  decrypted.toString(CryptoJS.enc.Utf8);
+                
+                alert(str_decrypted);
+                
+                $(".decr").text(str_decrypted);
+            });
+        </script>
+    </body>
+
+</html>

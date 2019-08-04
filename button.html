@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery-1.4.js" type="text/javascript"></script>
+        <style>
+            #banner {
+                border-radius: 5px 5px 5px 5px;
+                background: lightblue;
+                color:white;
+                width:185px;
+                height: 30px;
+                font-size: 18px;
+            }  
+        </style>
+    </head>
+    <body>
+    <CENTER>
+        <form name="form2" action="home.htm">
+            <!-- Замените action="home.htm" на onSubmit=КАКАЯ_ТО_ФУНКЦИЯ-->
+            <input type="submit" style="" name="banner" id="banner" VALUE="Применить"><!---Текст для браузеров без поддержки Javascript--->
+        </form>
+    </CENTER>
+    <input type="button" id="stop" value="stop banner">
+    <input type="button" id="show" value="show banner">
+    
+    <script>
+        $('#stop').click(function(){
+            $('#banner').css('display','none');
+        });
+        $('#show').click(function(){
+            $('#banner').css('display','block');
+        });
+    </script>
+
+    <script>
+        var id, pause = 0, position = 0;
+        function banner() {
+// variables declaration
+            var i, k, msg = "Click decode this page !";    // ТЕКСТ ДЛЯ БРАУЗЕРОВ С ПОДДЕРЖКОЙ JAVASCRIPT
+// increase msg
+            k = (60 / msg.length) + 1;
+            for (i = 0; i <= k; i++)
+                msg += " " + msg;
+// show it to the window
+           // document.form2.banner.value = msg.substring(position, position + 60);
+            document.getElementById("banner").value = msg.substring(position, position + 60);
+// set new position
+            if (position++ == msg.length)
+                position = 0;
+// repeat at entered speed 
+            id = setTimeout("banner()", 200);
+        }
+// end -->
+        banner();
+    </script> 
+</body>
+</html>
